@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 def analyzefunction(x, primitive, derivative1, derivative2):
     try:
         y = eval(primitive)
-        y1 = eval(derivee1)
-        y2 = eval(derivee2)
+        y1 = eval(derivative1)
+        y2 = eval(derivative2)
     except Exception as e:
         print("Error:", e)
         return
@@ -72,18 +72,18 @@ while True:
         end = float(input("Enter interval end point: "))
         num_points = int(input("Enter number of points: "))
         if num_points <= 1: # User should choose more than 1 point
-           raise ValueError("Number of points must be more than 1.")
+            raise ValueError("Number of points must be more than 1.")
         if start >= end: # User should choose the start point value that is smaller than end point value
-           raise ValueError("Start point value should be smaller than end point value.")
+            raise ValueError("Start point value should be smaller than end point value.")
     except ValueError as e:
-       print(f"Error: {e}")
-       continue
+            print(f"Error: {e}")
+            continue
 
 
 # Plotting the X-axis
     x = np.linspace(start, end, num_points)
     params = tests[test]
-    analysefonction(x, params['f'], params['f1'], params['f2'])
+    analyzefunction(x, params['f'], params['f1'], params['f2'])
 
     # Asking if user wants to continue testing (nested cycle)
     while True:
